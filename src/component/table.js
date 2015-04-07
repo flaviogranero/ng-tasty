@@ -29,6 +29,7 @@ angular.module('ngTasty.component.table', [
     'sortOrder': 'sort-order'
   },
   bindOnce: true,
+  loadOnInit: false,
   iconUp: 'fa fa-sort-up',
   iconDown: 'fa fa-sort-down',
   bootstrapIcon: false,
@@ -94,7 +95,7 @@ angular.module('ngTasty.component.table', [
   $scope.query.sortOrder = $scope.query.sortOrder || this.config.query.sortOrder;
 
   // Set init configs
-  if ($scope.reload) {
+  if ($scope.reload && !this.config.loadOnInit) {
     initNow = false;
   }
   $scope.init.count = $scope.init.count || this.config.init.count;
